@@ -86,13 +86,18 @@ def on_connect_mqtt(client, userdata, flags, rc):
 
 def on_message_mqtt(client, userdata, message):
     logger.info('Message MQTT reçu : ' + str(message.payload.decode()))
-    cmd = message.payload.decode().split(",")
-    if cmd[0] == "42":
-        cmd[1] = (int(cmd[1]) * 2)
-    Message_MQTT.empile("C|WriteParametri|" + cmd[0] + "|" + str(cmd[1]))
-    logger.info('Contenu Pile Message_MQTT : ' + str(Message_MQTT.copiepile()))
-    send()
-
+    msg = []
+    if message.payload.decode().find(";") > -1
+        msg = message.payload.decode().split(";")
+    else 
+        msg.append(message.payload.decode()) 
+    for i in msg
+        cmd = msg[i].split(",")
+        if cmd[0] == "42":
+            cmd[1] = (int(cmd[1]) * 2)
+        Message_MQTT.empile("C|WriteParametri|" + cmd[0] + "|" + str(cmd[1]))
+        logger.info('Contenu Pile Message_MQTT : ' + str(Message_MQTT.copiepile()))
+        send()
 
 def secTOdhms(nb_sec):
     qm, s = divmod(nb_sec, 60)
