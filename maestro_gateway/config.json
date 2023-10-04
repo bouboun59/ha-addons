@@ -1,12 +1,12 @@
 {
-  "name": "Maestro Gateway",
-  "version": "2.6.1",
-  "slug": "maestro_gateway",
-  "description": "MQTT Gateway to MCZ Maestro stoves' api",
-  "url": "https://github.com/SebLz/ha-addons/tree/main/maestro_gateway",
+  "name": "Maestro Gateway MC",
+  "version": "3.0.1",
+  "slug": "maestro_gateway_mc",
+  "description": "MQTT Gateway to MCZ Maestro stoves Mulitple send Command' api",
+  "url": "https://github.com/bouboun59/ha-addons/tree/main/maestro_gateway",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "init": false,
-  "image": "ghcr.io/seblz/{arch}-addon-maestro_gateway",
+  "image": "ghcr.io/bouboun59/{arch}-addon-maestro_gateway",
   "options": {
     "USE_MCZ_CLOUD": true,
     "MQTT_ip": "core-mosquitto",
