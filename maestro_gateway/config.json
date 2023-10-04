@@ -1,6 +1,6 @@
 {
   "name": "Maestro Gateway MC",
-  "version": "3.0.2b",
+  "version": "3.0.3",
   "slug": "maestro_gateway_mc",
   "description": "MQTT Gateway to MCZ Maestro stoves Mulitple send Command",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
