@@ -87,11 +87,11 @@ def on_connect_mqtt(client, userdata, flags, rc):
 def on_message_mqtt(client, userdata, message):
     logger.info('Message MQTT reçu : ' + str(message.payload.decode()))
     msg = []
-    if message.payload.decode().find(";") > -1
+    if message.payload.decode().find(";") > -1:
         msg = message.payload.decode().split(";")
     else 
         msg.append(message.payload.decode()) 
-    for i in msg
+    for i in msg:
         cmd = msg[i].split(",")
         if cmd[0] == "42":
             cmd[1] = (int(cmd[1]) * 2)
