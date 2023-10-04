@@ -89,10 +89,15 @@ def on_message_mqtt(client, userdata, message):
     msg = []
     if message.payload.decode().find(";") > -1:
         msg = message.payload.decode().split(";")
-    else 
+    else: 
         msg.append(message.payload.decode()) 
+<<<<<<< HEAD
     for i in msg:
         cmd = msg[i].split(",")
+=======
+    for value in msg:
+        cmd = value.split(",")
+>>>>>>> 565314e (modify cloud maestro.py)
         if cmd[0] == "42":
             cmd[1] = (int(cmd[1]) * 2)
         Message_MQTT.empile("C|WriteParametri|" + cmd[0] + "|" + str(cmd[1]))
