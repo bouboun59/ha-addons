@@ -198,7 +198,19 @@ def on_open(ws):
         for i in range(360*4):
             time.sleep(0.25)
             while not CommandQueue.empty():
-                cmd = maestrocommandvalue_to_websocket_string(CommandQueue.get())
+                #here send all final message in queue
+                #if command = set temperature then write mode auto and send temperature
+                cmdQueue = CommandQueue.get()
+                typeCmd = cmdQueue.command.maestroid
+                if typeCmd == 42:
+                    write = "C|WriteParametri|40|1"
+                    logger.info("Websocket: Send " + str(write))
+                    ws.send(write)
+                if typeCmd == 36:
+                    write = "C|WriteParametri|40|0"
+                    logger.info("Websocket: Send " + str(write))
+                    ws.send(write)
+                cmd = maestrocommandvalue_to_websocket_string(CmdQueue)
                 logger.info("Websocket: Send " + str(cmd))
                 ws.send(cmd)        
         logger.info('Closing Websocket Connection')
@@ -221,7 +233,7 @@ def start_mqtt():
         logger.info('MQTT: Subscribed to topic "' + str(_MQTT_TOPIC_SUB) + '#"')
         client.subscribe(_MQTT_TOPIC_SUB+'#', qos=1)
         publish_availabletopics()
-    else:
+    else:maestrocommandvalue_to_websocket_string
         logger.info('MQTT: Subscribed to topic "' + str(_MQTT_TOPIC_SUB) + '"')
         client.subscribe(_MQTT_TOPIC_SUB, qos=1)   
 

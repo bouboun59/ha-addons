@@ -88,11 +88,11 @@ RecuperoInfo=[
 	[8,"Temperature chaudiere"],
 	[9,"Temperature NTC3"], # !=255 == Hydro
 	[10,"Etat de la bougie",[
-					[0, "Ok"],
-					[1, "Usee"],
+					[0, "Off"],
+					[1, "On"],
 					]],
 	[11,"ACTIVE - Set"],
-	[12,"RPM - Ventilateur fummees"],
+	[12,"RPM - Ventilateur fumees"],
 	[13,"RPM - Vis sans fin - SET"],
 	[14,"RPM - Vis sans fin - LIVE"],
 	[17,"Brazero",[
