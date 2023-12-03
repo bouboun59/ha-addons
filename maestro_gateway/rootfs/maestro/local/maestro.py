@@ -233,7 +233,7 @@ def start_mqtt():
         logger.info('MQTT: Subscribed to topic "' + str(_MQTT_TOPIC_SUB) + '#"')
         client.subscribe(_MQTT_TOPIC_SUB+'#', qos=1)
         publish_availabletopics()
-    else:maestrocommandvalue_to_websocket_string
+    else:
         logger.info('MQTT: Subscribed to topic "' + str(_MQTT_TOPIC_SUB) + '"')
         client.subscribe(_MQTT_TOPIC_SUB, qos=1)   
 
@@ -308,6 +308,4 @@ if __name__ == "__main__":
         time.sleep(1)
         socket_reconnect_count = socket_reconnect_count + 1
         logger.info("Socket Reconnection Count: " + str(socket_reconnect_count))
-        if socket_reconnect_count>_WS_RECONNECTS_BEFORE_ALERT:
-            send_connection_status_message({"Status":"disconnected"})
-            socket_reconnect_count = 0
+

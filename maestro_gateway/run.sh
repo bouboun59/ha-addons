@@ -49,7 +49,10 @@ _MQTT_PAYLOAD_TYPE = '$(bashio::config 'MQTT_PAYLOAD_TYPE')'
 _WS_RECONNECTS_BEFORE_ALERT = $(bashio::config 'WS_RECONNECTS_BEFORE_ALERT')
 _MCZip = '$(bashio::config 'MCZip')'
 _MCZport = '$(bashio::config 'MCZport')'
-_VERSION = '0.1b'
+_MCZ_device_serial = '$(bashio::config 'MCZ_device_serial')'
+_MCZ_device_MAC = '$(bashio::config 'MCZ_device_MAC')'
+_MCZ_App_URL = '$(bashio::config 'MCZ_App_URL')'
+_VERSION = '1.5'
 " > /maestro/localv2/_config_.py
 
 if bashio::config.true 'USE_MCZ_CLOUD'; then
